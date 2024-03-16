@@ -1,0 +1,47 @@
+{
+  "name": "bitxend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@types/react-loader-spinner": "^4.0.0",
+    "axios": "^1.5.1",
+    "copyfiles": "^2.4.1",
+    "env-cmd": "^10.1.0",
+    "file-saver": "^2.0.5",
+    "framer-motion": "^11.0.8",
+    "node-sass": "^9.0.0",
+    "notistack": "^3.0.1",
+    "peerjs": "^1.5.2",
+    "react": "^18.2.0",
+    "react-circular-progressbar": "^2.1.0",
+    "react-device-detect": "^2.2.3",
+    "react-div-100vh": "^0.7.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
+    "react-media-hook": "^0.5.0",
+    "react-simple-snackbar": "^1.1.11",
+    "socket.io-client": "^4.7.4",
+    "uuid": "8.3.2"
+  },
+  "devDependencies": {
+    "@types/file-saver": "^2.0.7",
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "sass": "^1.72.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.6"
+  }
+}

@@ -1,0 +1,45 @@
+@import '../../global/theme.scss';
+
+.root {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.home {
+  @include theme() {
+    background-color: theme(background);
+  }
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100vh;
+}
+.loader{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color:rgba(227, 229, 230, 0.2) ;
+  gap:4px;
+}
+.loader span {
+  border: 2px solid grey;
+  border-radius: 50%;
+  border-top: 2px solid #181818;
+  width: 23px;
+  height: 23px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
+}

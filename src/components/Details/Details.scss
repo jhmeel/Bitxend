@@ -1,0 +1,143 @@
+@import "../../global/theme.scss";
+@import "../../global/typography.scss";
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 5px;
+  position: relative;
+  span {
+    @include theme() {
+      color: theme(text);
+    }
+    font-size: $body;
+    z-index: 10;
+  }
+  p {
+    color: $primary;
+    font-size: $caption;
+    z-index: 10;
+  }
+}
+.icon {
+  height: 18px;
+  width: 18px;
+}
+.airdrop-logo {
+  height: 3em;
+  width: 3em;
+  z-index: 10;
+}
+
+p.labell {
+  font-size: 12px;
+  border: 1px solid #ededed;
+  padding: 2px 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+p.labell span {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  @include theme() {
+    color: $primary;
+  }
+}
+
+.f-info {
+  padding: 5px 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: rgb(138, 186, 228);
+  border-left: 4px solid #66a5ee;
+}
+
+.xend-files {
+  position: fixed;
+  width: 300px;
+  max-height: 70vh;
+  max-height: 70vh;
+  border: 1px solid #ededed;
+  left: 40%;
+  top: 20%;
+  background-color: rgba(227, 229, 230, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
+  -o-backdrop-filter: blur(10px);
+  transform: 0.5s;
+  z-index: 100;
+  border-radius: 6px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 767px) {
+    & {
+      left: 10%;
+    }
+  }
+  .xd-hd {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 20px;
+  }
+  .search-bar {
+    height: 35px;
+    width: 100%;
+    border: none;
+    background-color: #ededed;
+    padding: 5px 10px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+  }
+  .search-bar:focus {
+    outline: none;
+  }
+  .x-f {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    overflow-y: scroll;
+    margin-top: 5px;
+  }
+  .x-f::-webkit-scrollbar {
+    display: none;
+  }
+  .x-f li {
+    font-size: 14px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+    padding: 5px;
+    cursor: pointer;
+  }
+  .x-f li:hover {
+    background-color: #ededed;
+    border-radius: 5px;
+  }
+}
+.load {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
