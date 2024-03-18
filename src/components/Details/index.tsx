@@ -51,37 +51,32 @@ const Details = (props: DetailsProps): React.ReactElement => {
           file: reader.result as string,
           filename: file.name,
         });
+        xendit({ filename: file.name, file: reader.result as string });
       };
       reader.readAsDataURL(file);
     }
   };
 
-  useEffect(() => {
-    xendit();
-  }, [selectedFile]);
-
-  const xendit = async () => {
+  const xendit = async (selectedFile: { filename: string; file: string }) => {
     try {
-      if (selectedFile.file) {
-        setXending(true);
+      setXending(true);
 
-        const file: XendItPayload = {
-          PeerId: currentPeer.id,
-          fileId: uuidv4(),
-          filename: selectedFile.filename,
-          fileData: selectedFile.file,
-        };
+      const file: XendItPayload = {
+        PeerId: currentPeer.id,
+        fileId: uuidv4(),
+        filename: selectedFile.filename,
+        fileData: selectedFile.file,
+      };
 
-        const { data } = await axiosInstance().post("/api/v1/xendit", { file });
-        data?.success && Connection.emit("XENDIT", file.fileId);
+      const { data } = await axiosInstance().post("/api/v1/xendit", { file });
+      data?.success && Connection.emit("XENDIT", file.fileId);
 
-        setSelectedFile({
-          file: "",
-          filename: "",
-        });
-        setXending(false);
-        enqueueSnackbar("file shared successfully", { variant: "success" });
-      }
+      setSelectedFile({
+        file: "",
+        filename: "",
+      });
+      setXending(false);
+      enqueueSnackbar("file shared successfully", { variant: "success" });
     } catch (err) {
       setXending(false);
       console.error(err);
@@ -113,7 +108,7 @@ const Details = (props: DetailsProps): React.ReactElement => {
     try {
       enqueueSnackbar("downloading file", { variant: "info" });
       const link = document.createElement("a");
-      link.href = window.URL.createObjectURL(new Blob([file.fileData]));
+      link.href = window.URL.createObjectURL(new Blob([atob(file.fileData)]));
       link.download = file.filename;
       document.body.append(link);
       link.click();
